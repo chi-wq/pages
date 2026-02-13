@@ -1,0 +1,15 @@
+title: "chi-wq's Tech Blog"
+description: "Notes and write-ups"
+theme: minima
+
+# Project site settings (repo: chi-wq/pages → https://chi-wq.github.io/pages/)
+baseurl: "/pages"
+url: "https://chi-wq.github.io"
+
+# Optional: show links in the header
+header_pages:
+  - index.md
+  - about.md
+
+# Optional: nicer permalinks
+permalink: /:categories/:year/:month/:day/:title/
