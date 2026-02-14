@@ -59,11 +59,51 @@ tags: [ゲーム, 元素, 反応, 試練]
 
 ## プレイ動画
 
-<video controls preload="metadata" style="max-width:100%;height:auto;">
+<style>
+  video::cue {
+    font-size: 14px;
+    line-height: 1.35;
+    color: #fff;
+    background: rgba(0,0,0,.35);
+    text-shadow: 0 1px 2px rgba(0,0,0,.6);
+  }
+  @media (max-width: 480px) {
+    video::cue { font-size: 12px; }
+  }
+</style>
+
+<video id="trailer" controls preload="metadata" style="max-width:100%;height:auto;">
   <source src="https://github.com/chi-wq/attachments/releases/download/element_odyssey_ver0.03/element_odyssey_ver0.03.mp4" type="video/mp4">
   <track kind="subtitles" srclang="ja" label="日本語" src="{{ '/assets/subtitles/element_odyssey_ver0.03.ja.vtt' | relative_url }}" default>
   Your browser does not support the video tag.
 </video>
+
+<script>
+(function () {
+  const v = document.getElementById('trailer');
+  if (!v) return;
+
+  function forceJapaneseSubtitles() {
+    const tracks = v.textTracks;
+    if (!tracks || !tracks.length) return;
+    for (const tt of tracks) {
+      const isJA = tt.language === 'ja' || (tt.label || '').includes('日本');
+      tt.mode = isJA ? 'showing' : 'disabled';
+    }
+  }
+
+  if (v.readyState >= 1) forceJapaneseSubtitles();
+  v.addEventListener('loadedmetadata', forceJapaneseSubtitles);
+  v.addEventListener('loadeddata', forceJapaneseSubtitles);
+  v.addEventListener('play', forceJapaneseSubtitles);
+
+  try {
+    v.textTracks.addEventListener('addtrack', forceJapaneseSubtitles);
+  } catch (e) {}
+
+  setTimeout(forceJapaneseSubtitles, 500);
+})();
+</script>
 
 If the embedded player doesn't work, open it directly:
 <a href="https://github.com/chi-wq/attachments/releases/download/element_odyssey_ver0.03/element_odyssey_ver0.03.mp4" target="_blank" rel="noopener">element_odyssey_ver0.03.mp4</a>
