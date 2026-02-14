@@ -61,14 +61,14 @@ tags: [ゲーム, 元素, 反応, 試練]
 
 <style>
   video::cue {
-    font-size: 14px;
+    font-size: 10px;
     line-height: 1.35;
     color: #fff;
     background: rgba(0,0,0,.35);
     text-shadow: 0 1px 2px rgba(0,0,0,.6);
   }
   @media (max-width: 480px) {
-    video::cue { font-size: 12px; }
+    video::cue { font-size: 8px; }
   }
 </style>
 
