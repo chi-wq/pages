@@ -11,5 +11,19 @@ header_pages:
   - index.md
   - about.md
 
-# Optional: nicer permalinks
+# Optional: nicer permalinks (for posts in _posts)
 permalink: /:categories/:year/:month/:day/:title/
+
+entries_section_title: "投稿 / Entries"  
+
+collections:
+  entries:
+    output: true
+    permalink: /entries/:title/
+
+defaults:
+  - scope:
+      path: ""
+      type: entries
+    values:
+      layout: post
