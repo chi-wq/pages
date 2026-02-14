@@ -1,41 +1,41 @@
 WEBVTT
 
-00:00:00.000 --> 00:00:03.500 line:90% position:50% size:60% align:middle
+00:00:00.000 --> 00:00:03.500 line:90% position:50% size:60% align:center
 各ステージ開始前には待機時間がある
 ステージ生成のための時間だ
 
-00:00:07.000 --> 00:00:09.500 line:90% position:50% size:60% align:middle
+00:00:07.000 --> 00:00:09.500 line:90% position:50% size:60% align:center
 通常攻撃を長押しで元素攻撃をチャージ
 離すと敵に投げつける
 
-00:00:10.000 --> 00:00:13.000 line:90% position:50% size:60% align:middle
+00:00:10.000 --> 00:00:13.000 line:90% position:50% size:60% align:center
 元素攻撃で敵を撃破すると
 画面中央に「元素反応撃破 +100点」と表示される
 
-00:00:14.000 --> 00:00:16.000 line:90% position:50% size:60% align:middle
+00:00:14.000 --> 00:00:16.000 line:90% position:50% size:60% align:center
 敵を倒すと
 元素オーブが拾える状態になる
 
-00:00:22.000 --> 00:00:26.000 line:90% position:50% size:60% align:middle
+00:00:22.000 --> 00:00:26.000 line:90% position:50% size:60% align:center
 同じ属性の元素オーブを続けて2個拾うと
 攻撃では元素反応が発生しなくなる
 
-00:00:29.000 --> 00:00:32.000 line:90% position:50% size:60% align:middle
+00:00:29.000 --> 00:00:32.000 line:90% position:50% size:60% align:center
 新しいステージに入る前に
 主/副に異なる2つの元素が自動で割り当てられる
 
-00:01:34.000 --> 00:01:38.000 line:90% position:50% size:60% align:middle
+00:01:34.000 --> 00:01:38.000 line:90% position:50% size:60% align:center
 元素オーブの「拾える状態」は5秒のみ
 以降はアビスエネルギーオーブとなり、触れると増援ウェーブが出現する
 
-00:02:41.000 --> 00:02:44.000 line:90% position:50% size:60% align:middle
+00:02:41.000 --> 00:02:44.000 line:90% position:50% size:60% align:center
 敵が元素オーブやアビスエネルギーオーブに触れると
 オーブは砕けて消え、増援ウェーブが出現する
 
-00:03:37.000 --> 00:03:40.000 line:90% position:50% size:60% align:middle
+00:03:37.000 --> 00:03:40.000 line:90% position:50% size:60% align:center
 各ステージで必要なオーブ数は増えていく
 敵に多く壊されるとクリア条件を満たせない
 
-00:04:00.000 --> 00:04:08.000 line:90% position:50% size:60% align:middle
+00:04:00.000 --> 00:04:08.000 line:90% position:50% size:60% align:center
 各ステージの制限時間は60秒
 時間切れになると失敗
