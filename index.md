@@ -15,7 +15,7 @@ Welcome! This is my tech blog.
     {% for doc in docs %}
       <li>
         <a href="{{ doc.url | relative_url }}">{{ doc.title }}</a>
-        {% if doc.date %}<small> — {{ doc.date | date: "%Y-%m-%d" }}</small>{% endif %}
+        {% if doc.date %}<small> </small>{% endif %}
       </li>
     {% endfor %}
   {% else %}
