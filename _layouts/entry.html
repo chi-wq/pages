@@ -1,0 +1,82 @@
+---
+layout: default
+---
+
+<link rel="stylesheet" href="{{ '/assets/wiki.css' | relative_url }}">
+<script src="{{ '/assets/toc.js' | relative_url }}" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js" defer></script>
+<script src="{{ '/assets/mermaid-init.js' | relative_url }}" defer></script>
+
+<article class="post">
+  <header class="post-header wiki-header">
+    <h1 class="post-title">{{ page.title | escape }}</h1>
+  </header>
+
+  <div class="wiki-layout">
+    {% if page.wiki_key %}
+      {% assign wiki_root = site.entries | where: 'wiki_key', page.wiki_key | where_exp: 'd', 'd.wiki_root == true' | first %}
+      {% assign wiki_children = site.entries | where: 'wiki_key', page.wiki_key | where_exp: 'd', 'd.wiki_root != true' | sort: 'wiki_order' %}
+
+      {% if wiki_root %}
+      <aside class="wiki-sidebar" aria-label="Wiki navigation">
+        <div class="wiki-sidebar__inner">
+          {% if wiki_root %}
+            <div class="wiki-sidebar__title">
+              <a href="{{ wiki_root.url | relative_url }}">{{ wiki_root.title }}</a>
+            </div>
+          {% endif %}
+
+          {% if wiki_children and wiki_children.size > 0 %}
+          <nav class="wiki-sidebar__nav" aria-label="Pages">
+            <ul class="wiki-sidebar__list">
+              {% for child in wiki_children %}
+                {% if child.url == page.url %}
+                  <li class="wiki-sidebar__item is-current">{{ child.title }}</li>
+                {% else %}
+                  <li class="wiki-sidebar__item"><a href="{{ child.url | relative_url }}">{{ child.title }}</a></li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+          </nav>
+          {% endif %}
+
+          {% if wiki_root and wiki_root.url != page.url %}
+            <div class="wiki-sidebar__meta">
+              <a href="{{ wiki_root.url | relative_url }}">親ページへ戻る</a>
+            </div>
+          {% endif %}
+        </div>
+      </aside>
+      {% elsif wiki_children and wiki_children.size > 0 %}
+      <aside class="wiki-sidebar" aria-label="Wiki navigation">
+        <div class="wiki-sidebar__inner">
+          <nav class="wiki-sidebar__nav" aria-label="Pages">
+            <ul class="wiki-sidebar__list">
+              {% for child in wiki_children %}
+                {% if child.url == page.url %}
+                  <li class="wiki-sidebar__item is-current">{{ child.title }}</li>
+                {% else %}
+                  <li class="wiki-sidebar__item"><a href="{{ child.url | relative_url }}">{{ child.title }}</a></li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+          </nav>
+        </div>
+      </aside>
+      {% endif %}
+    {% endif %}
+
+    <div class="wiki-main">
+      <div class="post-content wiki-content">
+        {{ content }}
+      </div>
+    </div>
+
+    <aside class="toc-sidebar" aria-label="On this page">
+      <div class="toc-sidebar__inner">
+        <div class="toc-sidebar__title">このページ</div>
+        <nav class="toc-sidebar__nav" aria-label="Table of contents"></nav>
+      </div>
+    </aside>
+  </div>
+</article>

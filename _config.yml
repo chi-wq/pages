@@ -14,7 +14,7 @@ header_pages:
 # Optional: nicer permalinks (for posts in _posts)
 permalink: /:categories/:year/:month/:day/:title/
 
-entries_section_title: "投稿 / Entries"  
+entries_section_title: "投稿 / Entries"
 
 collections:
   entries:
@@ -26,4 +26,4 @@ defaults:
       path: ""
       type: entries
     values:
-      layout: post
+      layout: entry

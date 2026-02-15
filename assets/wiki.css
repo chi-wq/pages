@@ -1,0 +1,110 @@
+.wiki-layout {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+}
+
+.wiki-header {
+  text-align: center;
+}
+
+/* minima の wrapper が中央寄せ＆幅狭めなので、wikiページ(=entry layout)だけ広げる */
+.page-content > .wrapper {
+  max-width: 1400px;
+  margin-left: 0;
+  margin-right: auto;
+}
+
+.wiki-sidebar {
+  flex: 0 0 16rem;
+}
+
+.wiki-main {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.toc-sidebar {
+  flex: 0 0 16rem;
+  margin-left: auto;
+}
+
+.wiki-sidebar__inner {
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 6px;
+  padding: 0.75rem;
+}
+
+.wiki-sidebar__title {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.wiki-sidebar__title,
+.wiki-sidebar__meta {
+  white-space: nowrap;
+}
+
+.wiki-sidebar__title a,
+.wiki-sidebar__meta a {
+  white-space: nowrap;
+}
+
+.wiki-sidebar__list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.wiki-sidebar__item {
+  margin: 0.25rem 0;
+}
+
+.wiki-sidebar__item.is-current {
+  font-weight: 600;
+}
+
+.wiki-sidebar__meta {
+  margin-top: 0.75rem;
+  font-size: 0.9em;
+}
+
+.toc-sidebar__inner {
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 6px;
+  padding: 0.75rem;
+}
+
+.toc-sidebar__title {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.toc-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.toc-list .toc-list {
+  padding-left: 1rem;
+  margin-top: 0.25rem;
+}
+
+.toc-item {
+  margin: 0.25rem 0;
+}
+
+@media (max-width: 700px) {
+  .wiki-layout {
+    display: block;
+  }
+
+  .wiki-sidebar {
+    margin-bottom: 1rem;
+  }
+
+  .toc-sidebar {
+    margin-bottom: 1rem;
+  }
+}
