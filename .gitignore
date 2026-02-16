@@ -10,3 +10,4 @@ Gemfile.lock
 .bundle
 .vscode
 vendor
+_config.dev.yml
