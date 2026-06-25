@@ -1,0 +1,19 @@
+---
+layout: none
+permalink: /search-v04.json
+---
+[
+{% assign v04_docs = site.entries | where: 'wiki_key', 'element-odyssey-v04' | sort: 'wiki_order' %}
+{% for doc in v04_docs %}
+  {% assign preview = doc.content | strip_html | normalize_whitespace %}
+  {
+    "title": {{ doc.title | jsonify }},
+    "url": {{ doc.url | relative_url | jsonify }},
+    "summary": {{ doc.summary | default: '' | jsonify }},
+    "preview": {{ preview | jsonify }},
+    "content": {{ doc.content | strip_html | normalize_whitespace | jsonify }},
+    "tags": {{ doc.tags | join: ', ' | jsonify }}
+  }{% unless forloop.last %},{% endunless %}
+{% endfor %}
+]
+

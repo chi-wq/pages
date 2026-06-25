@@ -11,3 +11,8 @@ Gemfile.lock
 .vscode
 vendor
 _config.dev.yml
+# Ruby / Jekyll 本地开发
+*.gem
+.ruby-version
+.ruby-gemset
+tmp/

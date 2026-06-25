@@ -1,6 +1,8 @@
 title: "chi-wq's Tech Blog"
 description: "Notes and write-ups"
 theme: minima
+plugins:
+  - jekyll-last-modified-at
 
 # Project site settings (repo: chi-wq/pages → https://chi-wq.github.io/pages/)
 baseurl: "/pages"

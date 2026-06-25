@@ -6,6 +6,7 @@ layout: default
 <script src="{{ '/assets/toc.js' | relative_url }}" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js" defer></script>
 <script src="{{ '/assets/mermaid-init.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/search.js' | relative_url }}" defer></script>
 
 <article class="post">
   <header class="post-header wiki-header">
@@ -20,6 +21,15 @@ layout: default
       {% if wiki_root %}
       <aside class="wiki-sidebar" aria-label="Wiki navigation">
         <div class="wiki-sidebar__inner">
+          {% if page.wiki_key == 'element-odyssey-v04' %}
+          <div id="wiki-search" class="wiki-search" data-search-url="{{ '/search-v04.json' | relative_url }}">
+          {% else %}
+          <div id="wiki-search" class="wiki-search" data-search-url="{{ '/search.json' | relative_url }}">
+          {% endif %}
+            <input id="wiki-search-input" class="wiki-search__input" type="search" placeholder="搜索文档..." aria-label="Search">
+            <div id="wiki-search-results" class="wiki-search__results"></div>
+          </div>
+
           {% if wiki_root %}
             <div class="wiki-sidebar__title">
               <a href="{{ wiki_root.url | relative_url }}">{{ wiki_root.title }}</a>
@@ -42,7 +52,7 @@ layout: default
 
           {% if wiki_root and wiki_root.url != page.url %}
             <div class="wiki-sidebar__meta">
-              <a href="{{ wiki_root.url | relative_url }}">親ページへ戻る</a>
+              <a href="{{ wiki_root.url | relative_url }}">返回上级</a>
             </div>
           {% endif %}
         </div>
@@ -70,13 +80,82 @@ layout: default
       <div class="post-content wiki-content">
         {{ content }}
       </div>
+
+      {% if page.wiki_key %}
+      {% assign siblings = site.entries | where: 'wiki_key', page.wiki_key | where_exp: 'd', 'd.wiki_root != true' | sort: 'wiki_order' %}
+      {% if siblings.size > 1 %}
+      {% for s in siblings %}
+        {% if s.url == page.url %}
+          {% unless forloop.first %}
+            {% assign prev_index = forloop.index0 | minus: 1 %}
+            {% assign prev = siblings[prev_index] %}
+          {% endunless %}
+          {% unless forloop.last %}
+            {% assign next_index = forloop.index0 | plus: 1 %}
+            {% assign next = siblings[next_index] %}
+          {% endunless %}
+        {% endif %}
+      {% endfor %}
+      <nav class="wiki-prevnext">
+        {% if prev %}
+        <a class="wiki-prevnext__prev" href="{{ prev.url | relative_url }}">← {{ prev.title }}</a>
+        {% endif %}
+        {% if next %}
+        <a class="wiki-prevnext__next" href="{{ next.url | relative_url }}">{{ next.title }} →</a>
+        {% endif %}
+      </nav>
+      {% endif %}
+      {% endif %}
+
+      <footer class="wiki-footer">
+        {% if page.last_modified_at %}
+        <span class="wiki-footer__updated">最后更新于 {{ page.last_modified_at | date: '%Y-%m-%d' }}</span>
+        {% endif %}
+
+      </footer>
     </div>
 
     <aside class="toc-sidebar" aria-label="On this page">
       <div class="toc-sidebar__inner">
-        <div class="toc-sidebar__title">このページ</div>
+        <div class="toc-sidebar__title">本页目录</div>
         <nav class="toc-sidebar__nav" aria-label="Table of contents"></nav>
       </div>
     </aside>
   </div>
+
+  <button id="wiki-backtotop" class="wiki-backtotop" aria-label="返回顶部">↑</button>
+  <button id="wiki-darkmode-toggle" class="wiki-darkmode-toggle" aria-label="切换深色模式">🌙</button>
 </article>
+
+<script>
+(function() {
+  // Back to top
+  var btn = document.getElementById('wiki-backtotop');
+  if (btn) {
+    var threshold = 400;
+    var onScroll = function() {
+      btn.classList.toggle('is-visible', window.scrollY > threshold);
+    };
+    window.addEventListener('scroll', onScroll);
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    onScroll();
+  }
+
+  // Dark mode toggle
+  var toggleBtn = document.getElementById('wiki-darkmode-toggle');
+  if (toggleBtn) {
+    var html = document.documentElement;
+    var stored = localStorage.getItem('darkMode');
+    if (stored === 'true' || stored === null) html.classList.add('dark-mode');
+    toggleBtn.textContent = html.classList.contains('dark-mode') ? '☀️' : '🌙';
+    toggleBtn.addEventListener('click', function() {
+      html.classList.toggle('dark-mode');
+      var isDark = html.classList.contains('dark-mode');
+      localStorage.setItem('darkMode', isDark);
+      toggleBtn.textContent = isDark ? '☀️' : '🌙';
+    });
+  }
+})();
+</script>
