@@ -1,0 +1,19 @@
+---
+layout: none
+permalink: /search.json
+---
+[
+{% assign all_docs = site.entries | sort: 'title' %}
+{% for doc in all_docs %}
+  {% assign preview = doc.content | strip_html | normalize_whitespace %}
+  {
+    "title": {{ doc.title | jsonify }},
+    "url": {{ doc.url | relative_url | jsonify }},
+    "summary": {{ doc.summary | default: '' | jsonify }},
+    "preview": {{ preview | jsonify }},
+    "content": {{ doc.content | strip_html | normalize_whitespace | jsonify }},
+    "tags": {{ doc.tags | join: ', ' | jsonify }}
+  }{% unless forloop.last %},{% endunless %}
+{% endfor %}
+]
+
