@@ -190,9 +190,126 @@ Hi，这是我的技术博客。
   padding: 0 0.1em;
   border-radius: 2px;
 }
+
+/* ── 旧版文档（不推荐，点击前完全隐藏内容） ── */
+details.old-docs {
+  margin: 0.75rem 0;
+  border: 1px dashed rgba(0,0,0,0.1);
+  border-radius: 4px;
+  opacity: 0.55;
+  transition: opacity 0.2s;
+}
+
+details.old-docs:hover {
+  opacity: 0.8;
+}
+
+details.old-docs[open] {
+  opacity: 1;
+  padding: 0.5rem 0.75rem;
+}
+
+details.old-docs summary {
+  cursor: pointer;
+  padding: 0.4rem 0.5rem;
+  font-size: 0.78rem;
+  color: #999;
+}
+
+details.old-docs summary:hover {
+  color: #777;
+}
+
+details.old-docs .old-docs-hint {
+  user-select: none;
+}
+
+details.old-docs[open] summary {
+  padding: 0 0 0.5rem 0;
+  border-bottom: 1px dashed rgba(0,0,0,0.08);
+  margin-bottom: 0.5rem;
+}
+
+details.old-docs ul {
+  margin: 0.3rem 0;
+  padding-left: 1rem;
+}
+
+details.old-docs li {
+  margin: 0.15rem 0;
+}
+
+details.old-docs li a {
+  font-size: 0.82rem;
+  color: #999;
+}
+
+.dark-mode details.old-docs {
+  border-color: rgba(255,255,255,0.08);
+}
+
+.dark-mode details.old-docs summary {
+  color: #666;
+}
+
+.dark-mode details.old-docs summary:hover {
+  color: #888;
+}
+
+.dark-mode details.old-docs[open] summary {
+  border-bottom-color: rgba(255,255,255,0.08);
+}
+
+.dark-mode details.old-docs li a {
+  color: #777;
+}
 .dark-mode .search-highlight {
   background: #665d20;
   color: #e8e0b0;
+}
+
+/* ── 首页移动端适配 ── */
+@media (max-width: 768px) {
+  .home-darkmode-toggle {
+    bottom: 1rem;
+    right: 1rem;
+    width: 2.2rem;
+    height: 2.2rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-search {
+    max-width: 100%;
+  }
+
+  .home-darkmode-toggle {
+    width: 2rem;
+    height: 2rem;
+    font-size: 0.9rem;
+    bottom: 0.75rem;
+    right: 0.75rem;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+  }
+
+  pre {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: pre;
+    word-break: normal;
+  }
 }
 </style>
 
@@ -202,8 +319,9 @@ Hi，这是我的技术博客。
 {% if wiki_roots and wiki_roots.size > 0 %}
   {% for root in wiki_roots %}
 {% if root.wiki_key == 'element-odyssey' %}
-<details>
-<summary><strong><a href="{{ root.url | relative_url }}" onclick="event.stopPropagation()">{{ root.title }}</a></strong> <small>（旧版 v0.03 日文文档，点击展开）</small></summary>
+<details class="old-docs">
+<summary><span class="old-docs-hint">⚠ 点击查看已归档的旧版内容</span></summary>
+<p><em>以下为旧版 v0.03 的日文文档，已不适用当前版本，仅供参考。</em></p>
 {% else %}
 ### <a href="{{ root.url | relative_url }}">{{ root.title }}</a>
 {% endif %}

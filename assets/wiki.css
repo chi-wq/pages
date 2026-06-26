@@ -469,17 +469,281 @@
   padding: 0.5rem;
 }
 
-@media (max-width: 700px) {
+/* ── 侧栏折叠按钮（手机/平板） ── */
+.wiki-sidebar-toggle {
+  display: none;
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 0.75rem;
+  border: 1px solid rgba(0, 0, 0, 0.18);
+  border-radius: 6px;
+  background: transparent;
+  color: inherit;
+  font-size: 1rem;
+  cursor: pointer;
+  text-align: left;
+}
+
+.wiki-sidebar-toggle:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.dark-mode .wiki-sidebar-toggle {
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #ddd;
+}
+
+.dark-mode .wiki-sidebar-toggle:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* ── 移动端 TOC 折叠 ── */
+.toc-sidebar-toggle {
+  display: none;
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid rgba(0, 0, 0, 0.18);
+  border-radius: 6px;
+  background: transparent;
+  color: inherit;
+  font-size: 1rem;
+  cursor: pointer;
+  text-align: left;
+}
+
+.dark-mode .toc-sidebar-toggle {
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #ddd;
+}
+
+/* ── 通用移动端辅助 ── */
+.scrollable-table {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 1rem 0;
+  max-width: 100%;
+}
+
+.scrollable-table table {
+  width: auto;
+  min-width: 100%;
+  max-width: none;
+}
+
+/* 滚动提示：浅色渐变指示可滚动 */
+.scrollable-table::after {
+  content: '';
+  position: sticky;
+  right: 0;
+  top: 0;
+  width: 2rem;
+  height: 100%;
+  background: linear-gradient(to left, rgba(0,0,0,0.06), transparent);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s;
+  float: right;
+  margin-top: -100%;
+}
+
+.scrollable-table.is-scrollable::after {
+  opacity: 1;
+}
+
+.dark-mode .scrollable-table::after {
+  background: linear-gradient(to left, rgba(255,255,255,0.08), transparent);
+}
+
+/* ── 平板 ≤ 1024px ── */
+@media (max-width: 1024px) {
+  .wiki-sidebar {
+    flex: 0 0 14rem;
+  }
+
+  .toc-sidebar {
+    flex: 0 0 14rem;
+  }
+}
+
+/* ── 小屏 ≤ 768px ── */
+@media (max-width: 768px) {
   .wiki-layout {
     display: block;
   }
 
+  /* 侧栏折叠 */
+  .wiki-sidebar-toggle {
+    display: block;
+  }
+
   .wiki-sidebar {
+    display: none;
+    flex: none;
+    width: 100%;
     margin-bottom: 1rem;
   }
 
+  .wiki-sidebar.is-open {
+    display: block;
+  }
+
+  /* TOC 折叠 */
+  .toc-sidebar-toggle {
+    display: block;
+    margin-top: 1rem;
+  }
+
   .toc-sidebar {
-    margin-bottom: 1rem;
+    display: none;
+    flex: none;
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  .toc-sidebar.is-open {
+    display: block;
+  }
+
+  /* 内容区全宽 */
+  .wiki-main {
+    width: 100%;
+  }
+
+  /* 表格按内容真实宽度显示，外层 scrollable-table 提供滚动 */
+  .scrollable-table {
+    max-width: 100vw;
+  }
+  .scrollable-table table {
+    width: max-content;
+    min-width: 100%;
+    max-width: none !important;
+  }
+
+  /* Mermaid 图在移动端缩小字体 */
+  .mermaid svg {
+    font-size: 14px;
+  }
+
+  /* 固定按钮调整 */
+  .wiki-backtotop {
+    bottom: 1rem;
+    right: 1rem;
+    width: 2.2rem;
+    height: 2.2rem;
+    font-size: 1rem;
+  }
+
+  .wiki-darkmode-toggle {
+    bottom: 3.8rem;
+    right: 1rem;
+    width: 2.2rem;
+    height: 2.2rem;
+    font-size: 1rem;
   }
 }
-/* force rebuild */
+
+/* ── 手机 ≤ 480px ── */
+@media (max-width: 480px) {
+  .page-content > .wrapper {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  .wiki-content {
+    font-size: 0.95rem;
+  }
+
+  .wiki-content h1 { font-size: 1.5rem; }
+  .wiki-content h2 { font-size: 1.25rem; }
+  .wiki-content h3 { font-size: 1.1rem; }
+
+  /* 表格横向滚动 */
+  .wiki-content table,
+  .wiki-content pre,
+  .wiki-content code {
+    max-width: 100%;
+  }
+
+  .wiki-content table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+  }
+
+  .wiki-content pre {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: pre;
+    word-break: normal;
+    font-size: 0.8rem;
+  }
+
+  .wiki-content code {
+    font-size: 0.8rem;
+    word-break: break-all;
+  }
+
+  /* 表格紧凑 */
+  .wiki-content th,
+  .wiki-content td {
+    padding: 0.3rem 0.4rem;
+    font-size: 0.8rem;
+  }
+
+  /* Mermaid 图缩放 */
+  .mermaid {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    text-align: center;
+  }
+
+  .mermaid svg {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* 图片自适应 */
+  .wiki-content img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* 前后导航竖排 */
+  .wiki-prevnext {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .wiki-prevnext__prev,
+  .wiki-prevnext__next {
+    max-width: 100%;
+    white-space: normal;
+  }
+
+  .wiki-prevnext__next {
+    margin-left: 0;
+  }
+
+  /* 固定按钮进一步缩小 */
+  .wiki-backtotop {
+    width: 2rem;
+    height: 2rem;
+    font-size: 0.9rem;
+    bottom: 0.75rem;
+    right: 0.75rem;
+  }
+
+  .wiki-darkmode-toggle {
+    width: 2rem;
+    height: 2rem;
+    font-size: 0.9rem;
+    bottom: 3.2rem;
+    right: 0.75rem;
+  }
+
+  .wiki-footer {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+}
