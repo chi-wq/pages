@@ -19,6 +19,7 @@ layout: default
       {% assign wiki_children = site.entries | where: 'wiki_key', page.wiki_key | where_exp: 'd', 'd.wiki_root != true' | sort: 'wiki_order' %}
 
       {% if wiki_root %}
+      <button class="wiki-sidebar-toggle" aria-label="打开侧栏导航" aria-expanded="false">☰</button>
       <aside class="wiki-sidebar" aria-label="Wiki navigation">
         <div class="wiki-sidebar__inner">
           {% if page.wiki_key == 'element-odyssey-v04' %}
@@ -58,6 +59,7 @@ layout: default
         </div>
       </aside>
       {% elsif wiki_children and wiki_children.size > 0 %}
+      <button class="wiki-sidebar-toggle" aria-label="打开侧栏导航" aria-expanded="false">☰</button>
       <aside class="wiki-sidebar" aria-label="Wiki navigation">
         <div class="wiki-sidebar__inner">
           <nav class="wiki-sidebar__nav" aria-label="Pages">
@@ -115,6 +117,7 @@ layout: default
       </footer>
     </div>
 
+    <button class="toc-sidebar-toggle" aria-label="展开目录" aria-expanded="false">📋 本页目录</button>
     <aside class="toc-sidebar" aria-label="On this page">
       <div class="toc-sidebar__inner">
         <div class="toc-sidebar__title">本页目录</div>
@@ -142,6 +145,72 @@ layout: default
     });
     onScroll();
   }
+
+  // Mobile sidebar toggle
+  var sidebarToggle = document.querySelector('.wiki-sidebar-toggle');
+  var sidebar = document.querySelector('.wiki-sidebar');
+  if (sidebarToggle && sidebar) {
+    sidebarToggle.addEventListener('click', function() {
+      var expanded = sidebar.classList.toggle('is-open');
+      sidebarToggle.setAttribute('aria-expanded', expanded);
+      sidebarToggle.textContent = expanded ? '✕' : '☰';
+      sidebarToggle.setAttribute('aria-label', expanded ? '关闭侧栏导航' : '打开侧栏导航');
+    });
+    // 点击侧栏链接后自动收起
+    sidebar.querySelectorAll('a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        if (window.innerWidth <= 768) {
+          sidebar.classList.remove('is-open');
+          sidebarToggle.textContent = '☰';
+          sidebarToggle.setAttribute('aria-expanded', 'false');
+          sidebarToggle.setAttribute('aria-label', '打开侧栏导航');
+        }
+      });
+    });
+  }
+
+  // Mobile TOC toggle
+  var tocToggle = document.querySelector('.toc-sidebar-toggle');
+  var tocSidebar = document.querySelector('.toc-sidebar');
+  if (tocToggle && tocSidebar) {
+    tocToggle.addEventListener('click', function() {
+      var expanded = tocSidebar.classList.toggle('is-open');
+      tocToggle.setAttribute('aria-expanded', expanded);
+    });
+  }
+
+  // 包裹表格为可横向滚动容器 + 滚动提示
+  var wikiContent = document.querySelector('.wiki-content');
+  if (wikiContent) {
+    wikiContent.querySelectorAll('table').forEach(function(table) {
+      if (!table.parentElement.classList.contains('scrollable-table')) {
+        var wrapper = document.createElement('div');
+        wrapper.className = 'scrollable-table';
+        table.parentNode.insertBefore(wrapper, table);
+        wrapper.appendChild(table);
+        // 检测是否需要滚动
+        var checkOverflow = function() {
+          wrapper.classList.toggle('is-scrollable', wrapper.scrollWidth > wrapper.clientWidth);
+        };
+        checkOverflow();
+        window.addEventListener('resize', checkOverflow);
+      }
+    });
+  }
+
+  // 窗口 resize 时恢复侧栏状态
+  var onResize = function() {
+    if (window.innerWidth > 768) {
+      sidebar.classList.remove('is-open');
+      if (sidebarToggle) {
+        sidebarToggle.textContent = '☰';
+        sidebarToggle.setAttribute('aria-expanded', 'false');
+        sidebarToggle.setAttribute('aria-label', '打开侧栏导航');
+      }
+      tocSidebar.classList.remove('is-open');
+    }
+  };
+  window.addEventListener('resize', onResize);
 
   // Dark mode toggle
   var toggleBtn = document.getElementById('wiki-darkmode-toggle');

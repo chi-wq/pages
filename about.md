@@ -66,6 +66,43 @@ permalink: /about/
   color: #ccc;
 }
 .dark-mode .about-darkmode-toggle:hover { background: #444; }
+
+/* ── about 页移动端适配 ── */
+@media (max-width: 768px) {
+  .about-darkmode-toggle {
+    bottom: 1rem;
+    right: 1rem;
+    width: 2.2rem;
+    height: 2.2rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-darkmode-toggle {
+    width: 2rem;
+    height: 2rem;
+    font-size: 0.9rem;
+    bottom: 0.75rem;
+    right: 0.75rem;
+  }
+
+  img { max-width: 100%; height: auto; }
+
+  table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+  }
+
+  pre {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: pre;
+    word-break: normal;
+  }
+}
 </style>
 
 <script>
