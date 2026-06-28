@@ -58,7 +58,6 @@ Hi，这是我的技术博客。
 })();
 </script>
 
-- 仓库: [chi-wq/pages](https://github.com/chi-wq/pages)
 - 网址: [https://chi-wq.github.io/pages/](https://chi-wq.github.io/pages/)
 
 <script src="{{ '/assets/search.js' | relative_url }}" defer></script>
