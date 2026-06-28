@@ -11,7 +11,7 @@ wiki_order: 0
 
 **元素试炼：深渊回廊** 是一款闯关爬塔式元素战斗挑战图，在千星奇域中操控角色收集元素球、触发反应、击倒敌人逐关推进。
 
-**源码**：[GitHub 仓库](https://github.com/chi-wq/genshin-ts-element_odyssey) · [Gitee 仓库](https://gitee.com/chi-wq/genshin-ts-element_odyssey) · [下载压缩包]({{ '/assets/downloads/genshin-ts-element_odyssey-version.0.04.zip' | relative_url }})
+**源码**：[GitHub 仓库](https://github.com/chi-wq/genshin-ts-element_odyssey) · [Gitee 仓库](https://gitee.com/chi-wq/genshin-ts-element_odyssey) · [下载压缩包]({{ '/assets/downloads/genshin-ts-element_odyssey-0.04.zip' | relative_url }})
 
 **框架**：[Genshin-TS](https://gsts.moe) — TypeScript 编译为节点图并注入千星奇域地图
 
