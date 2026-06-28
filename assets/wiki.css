@@ -434,8 +434,15 @@
   background: transparent !important;
 }
 
+/* ── 醒目的分隔线 ── */
+hr {
+  border: none;
+  border-top: 3px solid rgba(0, 0, 0, 0.2);
+  margin: 1.5rem 0;
+}
+
 .dark-mode hr {
-  border-color: rgba(255, 255, 255, 0.1);
+  border-top-color: rgba(255, 255, 255, 0.35);
 }
 
 .dark-mode .post-meta {

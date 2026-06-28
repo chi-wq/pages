@@ -12,16 +12,70 @@ wiki_order: 10
 
 > 活用元素反应击倒敌人。击杀敌人后场上元素球会变为可拾取状态，触碰可更新主/副元素，使普攻可触发反应。全灭敌人并集齐指定数量的元素球即可通关。
 
-## 试玩视频
+## 试玩片段
 
-> 以下视频展示的是 v0.03 版本的试玩，核心玩法与 v0.04 相同。
+{% assign video_dir = '/assets/videos/' | relative_url %}
 
+<p><small>🎯 通关目标与元素收集</small> <a href="{{ video_dir }}clear_goal_elements.mp4" download>📥 下载</a></p>
 <video controls preload="metadata" style="max-width:100%;height:auto;">
-  <source src="https://github.com/chi-wq/attachments/releases/download/element_odyssey_ver0.03.sub/element_odyssey_ver0.03.sub.mp4" type="video/mp4">
+  <source src="{{ video_dir }}clear_goal_elements.mp4" type="video/mp4">
   您的浏览器不支持视频播放。
 </video>
+<blockquote>达成左上角目标即可进入下一关。前两关分别获得主元素与副元素，第三关起可用两者触发元素反应攻击。</blockquote>
 
-如果无法直接播放，可以[点击这里下载视频](https://github.com/chi-wq/attachments/releases/download/element_odyssey_ver0.03.sub/element_odyssey_ver0.03.sub.mp4)。
+<hr>
+
+<p><small>📋 规则说明与关卡重置</small> <a href="{{ video_dir }}rules_display_reset.mp4" download>📥 下载</a></p>
+<video controls preload="metadata" style="max-width:100%;height:auto;" poster="">
+  <source src="{{ video_dir }}rules_display_reset.mp4" type="video/mp4">
+  您的浏览器不支持视频播放。
+</video>
+<blockquote>左上角按钮可呼出规则面板；右上角按钮可重置本关。无法达成通关条件时，会自动弹出重置确认窗口。</blockquote>
+
+<hr>
+
+<p><small>🔮 特殊元素球效果</small> <a href="{{ video_dir }}special_orb.mp4" download>📥 下载</a></p>
+<video controls preload="metadata" style="max-width:100%;height:auto;">
+  <source src="{{ video_dir }}special_orb.mp4" type="video/mp4">
+  您的浏览器不支持视频播放。
+</video>
+<blockquote>特定关卡会出现外观不带元素标志的特殊球，例如绿色十字球，拾取后可回复血量。</blockquote>
+
+<hr>
+
+<p><small>🛡️ 护盾效果</small> <a href="{{ video_dir }}shield.mp4" download>📥 下载</a></p>
+<video controls preload="metadata" style="max-width:100%;height:auto;">
+  <source src="{{ video_dir }}shield.mp4" type="video/mp4">
+  您的浏览器不支持视频播放。
+</video>
+<blockquote>卡牌选择器或场上会出现护盾道具，使用后展开持续 20 秒的无敌护盾，免疫一切伤害。</blockquote>
+
+<hr>
+
+<p><small>⚠️ 元素选错导致的卡关与手动重置</small> <a href="{{ video_dir }}wrong_element.mp4" download>📥 下载</a></p>
+<video controls preload="metadata" style="max-width:100%;height:auto;">
+  <source src="{{ video_dir }}wrong_element.mp4" type="video/mp4">
+  您的浏览器不支持视频播放。
+</video>
+<blockquote>若场上仅有火史莱姆且主元素为火，火史莱姆免疫火攻击导致卡关。手动重置后主元素不变，但会出现火史莱姆以外的敌人，击倒后深渊球变回元素球，其中含非火元素球，拾取即可改变主元素。</blockquote>
+
+<hr>
+
+<p><small>💀 角色倒下与挑战失败</small> <a href="{{ video_dir }}defeat.mp4" download>📥 下载</a></p>
+<video controls preload="metadata" style="max-width:100%;height:auto;">
+  <source src="{{ video_dir }}defeat.mp4" type="video/mp4">
+  您的浏览器不支持视频播放。
+</video>
+<blockquote>触碰深渊球会触发追踪攻击，伤害较高，未及时躲闪则血量归零，挑战失败。</blockquote>
+
+<hr>
+
+<p><small>🏆 时间道具与最终胜利结算</small> <a href="{{ video_dir }}time_bonus.mp4" download>📥 下载</a></p>
+<video controls preload="metadata" style="max-width:100%;height:auto;">
+  <source src="{{ video_dir }}time_bonus.mp4" type="video/mp4">
+  您的浏览器不支持视频播放。
+</video>
+<blockquote>部分敌人较强，短时间无法全灭时，可善用增加时间的道具争取更多战斗时间，赢取最终胜利。</blockquote>
 
 ---
 
