@@ -12,6 +12,9 @@ wiki_order: 10
 
 > 活用元素反应击倒敌人。击杀敌人后场上元素球会变为可拾取状态，触碰可更新主/副元素，使普攻可触发反应。全灭敌人并集齐指定数量的元素球即可通关。
 
+> **游玩方式**：在千星奇域中搜索关卡 GUID `24439692738`（中国官方服务器·天空岛）即可进入挑战。
+> 场景文件（编译注入用）可在[奇域资产中心](https://act.mihoyo.com/ys/prod/ugc/component-store/index.html#/item/2071426326023155712)获取。
+
 ## 试玩片段
 
 {% assign video_dir = '/assets/videos/' | relative_url %}

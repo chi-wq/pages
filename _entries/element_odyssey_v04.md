@@ -15,6 +15,10 @@ wiki_order: 0
 
 **框架**：[Genshin-TS](https://gsts.moe) — TypeScript 编译为节点图并注入千星奇域地图
 
+**游玩需知**：关卡 GUID `24439692738` · 服务器：中国官方服务器（天空岛）
+
+**场景文件**：[奇域资产中心](https://act.mihoyo.com/ys/prod/ugc/component-store/index.html#/item/2071426326023155712)（需登录奇域资产中心方可下载）
+
 ---
 
 ## 文档目录
