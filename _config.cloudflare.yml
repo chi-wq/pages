@@ -1,0 +1,4 @@
+# Cloudflare Pages 覆盖配置
+# 使用方式: bundle exec jekyll build --config _config.yml,_config.cloudflare.yml
+baseurl: ""
+url: ""
