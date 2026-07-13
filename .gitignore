@@ -4,8 +4,6 @@ out
 *.log
 .env
 _site
-Gemfile
-Gemfile.lock
 .jekyll-cache
 .bundle
 .vscode
