@@ -58,7 +58,8 @@ Hi，这是我的技术博客。
 })();
 </script>
 
-- 网址: [https://chi-wq.github.io/pages/](https://chi-wq.github.io/pages/)
+- 🚀 **推荐访问**: [https://pages-aua.pages.dev/](https://pages-aua.pages.dev/)
+- 备选: [https://chi-wq.github.io/pages/](https://chi-wq.github.io/pages/)
 
 <script src="{{ '/assets/search.js' | relative_url }}" defer></script>
 
