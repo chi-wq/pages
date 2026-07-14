@@ -360,3 +360,50 @@ details.old-docs li a {
     <li><em>（目前以 wiki 形式的项目为主）</em></li>
   {% endif %}
 </ul>
+
+---
+
+## 游戏试玩 / Playable Demos
+
+### Cocos Games 🎮
+
+<div style="padding-left: 1.5em;">
+
+Cocos Creator 开发的游戏集合。
+
+#### 在线试玩
+
+👉 [https://cocosgames.pages.dev/](https://cocosgames.pages.dev/)
+
+备用：[https://chi-wq.github.io/cocosgames/](https://chi-wq.github.io/cocosgames/)
+
+#### 下载源码
+
+构建后的游玩代码：
+- [GitHub](https://github.com/chi-wq/cocosgames)
+- [Gitee](https://gitee.com/chi-wq/cocosgames)
+
+未经构建的源码（需使用 Cocos Creator 3.8.8 打开）：
+- [GitHub](https://github.com/chi-wq/FormationFive)
+- [Gitee](https://gitee.com/chi-wq/FormationFive)
+
+##### 游戏列表
+
+| 游戏 | 说明 |
+|------|------|
+| 🏕️ **森林战歌** (`FormationFive/`) | 回合制策略对战游戏 |
+
+#### 本地运行
+
+先下载构建后的游玩代码（参见上方「下载源码」→「构建后的游玩代码」），然后在代码目录下使用任意 HTTP 服务器：
+
+```bash
+# 使用任意 HTTP 服务器
+npx serve .
+# 或
+python -m http.server 5500
+```
+
+然后访问 `http://localhost:5500` 即可。
+
+</div>
