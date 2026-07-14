@@ -172,6 +172,21 @@ Hi，这是我的技术博客。
   padding: 0 !important;
   color: #e0e0e0 !important;
 }
+.dark-mode pre {
+  background: #1e1e1e;
+  border: 1px solid rgba(255,255,255,0.12);
+  color: #e0e0e0;
+}
+.dark-mode table {
+  color: #e0e0e0;
+}
+.dark-mode th,
+.dark-mode td {
+  border-color: rgba(255,255,255,0.15);
+}
+.dark-mode th {
+  background: #2a2a2a;
+}
 
 .search-result-preview {
   font-size: 0.85rem;
