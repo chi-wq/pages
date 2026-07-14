@@ -173,10 +173,26 @@ Hi，这是我的技术博客。
   color: #e0e0e0 !important;
 }
 .dark-mode pre {
-  background: #1e1e1e;
-  border: 1px solid rgba(255,255,255,0.12);
-  color: #e0e0e0;
+  background: #1e1e1e !important;
+  border: 1px solid rgba(255,255,255,0.12) !important;
+  color: #e0e0e0 !important;
 }
+.dark-mode pre code,
+.dark-mode pre span {
+  color: #e0e0e0 !important;
+}
+.dark-mode pre span.c,
+.dark-mode pre span.c1,
+.dark-mode pre span.cm,
+.dark-mode pre span.cp { color: #6a9955 !important; }
+.dark-mode pre span.s,
+.dark-mode pre span.s2,
+.dark-mode pre span.s1 { color: #ce9178 !important; }
+.dark-mode pre span.k,
+.dark-mode pre span.kd,
+.dark-mode pre span.kn { color: #569cd6 !important; }
+.dark-mode pre span.o { color: #d4d4d4 !important; }
+.dark-mode pre span.nb { color: #dcdcaa !important; }
 .dark-mode table {
   color: #e0e0e0;
 }
