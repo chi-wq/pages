@@ -299,6 +299,19 @@ details.old-docs li a {
   color: #e8e0b0;
 }
 
+/* ── 游戏试玩卡片区域 ── */
+.playable-demos-box {
+  padding: 0.1rem 1.5rem 0.5rem;
+  margin: 1rem 0 0.5rem;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 8px;
+  background: rgba(0,0,0,0.02);
+}
+.dark-mode .playable-demos-box {
+  border-color: rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.03);
+}
+
 /* ── 首页移动端适配 ── */
 @media (max-width: 768px) {
   .home-darkmode-toggle {
@@ -355,6 +368,9 @@ details.old-docs li a {
 <p><em>以下为旧版 v0.03 的日文文档，已不适用当前版本，仅供参考。</em></p>
 {% else %}
 ### <a href="{{ root.url | relative_url }}">{{ root.title }}</a>
+{% if root.prereq_note %}
+<p style="font-size:0.82rem; color:#999; margin-top:0.2rem;">⚠ {{ root.prereq_note }}</p>
+{% endif %}
 {% endif %}
 {% if root.summary %}
 <p>{{ root.summary }}</p>
@@ -396,9 +412,11 @@ details.old-docs li a {
 
 ## 游戏试玩 / Playable Demos
 
-### Cocos Games 🎮
+> 💡 以下为可直接在线游玩的游戏，与上方「投稿」中的开发文档相互独立。
 
-<div style="padding-left: 1.5em;" markdown="1">
+<div class="playable-demos-box" markdown="1">
+
+### Cocos Games 🎮
 
 Cocos Creator 开发的游戏集合。
 
