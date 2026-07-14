@@ -367,7 +367,7 @@ details.old-docs li a {
 
 ### Cocos Games 🎮
 
-<div style="padding-left: 1.5em;">
+<div style="padding-left: 1.5em;" markdown="1">
 
 Cocos Creator 开发的游戏集合。
 
